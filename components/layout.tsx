@@ -10,6 +10,8 @@ const navItems = [
   { href: "/formulas", label: "Formules" },
 ];
 
+const signatureOptions = ["Developed by TvdM", "Built with care by TvdM"];
+
 export function SiteLayout({
   title,
   description,
@@ -19,6 +21,8 @@ export function SiteLayout({
   description: string;
   children: React.ReactNode;
 }) {
+  const signature = signatureOptions[Math.floor(Math.random() * signatureOptions.length)];
+
   return (
     <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
       <header className="mb-6 rounded-[28px] border border-white/60 bg-ink px-6 py-5 text-white shadow-panel">
@@ -46,7 +50,10 @@ export function SiteLayout({
         <Card className="bg-white/70">
           <CardContent className="flex flex-col gap-2 text-sm text-slate sm:flex-row sm:items-center sm:justify-between">
             <span>Lokale exam trainer met voortgang in localStorage.</span>
-            <span>Gebouwd voor directe oefening per onderwerp, mini-toets en tentamenmodus.</span>
+            <div className="flex flex-col items-start gap-1 sm:items-end">
+              <span>Gebouwd voor directe oefening per onderwerp, mini-toets en tentamenmodus.</span>
+              <span className="text-xs tracking-wide text-slate/80">{signature}</span>
+            </div>
           </CardContent>
         </Card>
       </footer>

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-sand text-ink antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(50, 88, 79, 0.09), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(238, 243, 240, 0.55));
+}
+
+a {
+  @apply transition-colors;
+}
+
+::selection {
+  @apply bg-pine text-white;
+}

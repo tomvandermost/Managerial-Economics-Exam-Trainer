@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnswerModel } from "@/components/answer-model";
 import { EconomicsDiagram } from "@/components/diagrams/economics-diagram";
+import { InteractiveGraphExercise } from "@/components/interactive-graph-exercise";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,7 +42,7 @@ export function QuestionDetail({ question }: { question: PracticeQuestion }) {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+    <div className={question.interactiveGraphExercise ? "grid gap-6" : "grid gap-6 lg:grid-cols-[1.1fr_0.9fr]"}>
       <Card>
         <CardContent className="space-y-6">
           <div className="flex flex-wrap gap-2">
@@ -62,7 +63,11 @@ export function QuestionDetail({ question }: { question: PracticeQuestion }) {
             {question.questionText}
           </div>
 
-          {question.hasDiagram ? (
+          {question.interactiveGraphExercise ? (
+            <InteractiveGraphExercise exercise={question.interactiveGraphExercise} />
+          ) : null}
+
+          {question.hasDiagram && !question.interactiveGraphExercise ? (
             <div className="space-y-2">
               <p className="text-sm font-semibold text-ink">Schematische diagramondersteuning</p>
               <EconomicsDiagram topic={question.topic} />

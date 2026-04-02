@@ -2,6 +2,7 @@ export type Topic =
   | "perfecte-concurrentie"
   | "monopolie"
   | "externaliteiten"
+  | "welvaartsdiagrammen"
   | "speltheorie"
   | "gedragseconomie"
   | "importtarieven"
@@ -10,6 +11,56 @@ export type Topic =
 export type Difficulty = "easy" | "medium" | "hard";
 
 export type QuestionType = "calculation" | "theory" | "graph" | "open";
+
+export interface InteractiveGraphRegion {
+  id: string;
+  label: string;
+  points: string;
+  labelX: number;
+  labelY: number;
+}
+
+export interface InteractiveGraphLine {
+  id: string;
+  points?: string;
+  path?: string;
+  x1?: number;
+  y1?: number;
+  x2?: number;
+  y2?: number;
+  label?: string;
+  labelX?: number;
+  labelY?: number;
+  dashed?: boolean;
+  tone?: "demand" | "private" | "social" | "guide";
+}
+
+export interface InteractiveGraphText {
+  id: string;
+  x: number;
+  y: number;
+  text: string;
+  tone?: "default" | "muted";
+  anchor?: "start" | "middle" | "end";
+}
+
+export interface InteractiveGraphPrompt {
+  id: string;
+  questionText: string;
+  correctRegions: string[];
+  definitionNL: string;
+  explanationNL: string;
+}
+
+export interface InteractiveGraphExerciseData {
+  id: string;
+  title: string;
+  contextNL: string;
+  regions: InteractiveGraphRegion[];
+  lines: InteractiveGraphLine[];
+  texts: InteractiveGraphText[];
+  prompts: InteractiveGraphPrompt[];
+}
 
 export interface PracticeQuestion {
   id: string;
@@ -30,6 +81,7 @@ export interface PracticeQuestion {
   formulas?: string[];
   tags?: string[];
   hasDiagram?: boolean;
+  interactiveGraphExercise?: InteractiveGraphExerciseData;
 }
 
 export interface TopicMeta {

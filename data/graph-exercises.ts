@@ -1,0 +1,253 @@
+import { InteractiveGraphExerciseData } from "@/types";
+
+export const benzineWelfareExercise: InteractiveGraphExerciseData = {
+  id: "benzine-externe-kosten",
+  title: "Grafiek-gebied trainer: benzine en externe kosten",
+  contextNL:
+    "Deze oefening gebruikt een benzinemarkt met negatieve externaliteiten. Kies steeds de juiste combinatie van gebieden in de grafiek.",
+  regions: [
+    { id: "A", label: "A", points: "80,154 80,70 155,112 155,154", labelX: 112, labelY: 118 },
+    { id: "B", label: "B", points: "155,154 155,112 230,154", labelX: 182, labelY: 138 },
+    { id: "C", label: "C", points: "80,154 155,154 155,170 80,170", labelX: 118, labelY: 164 },
+    { id: "D", label: "D", points: "155,154 230,154 230,170 155,170", labelX: 193, labelY: 164 },
+    { id: "E", label: "E", points: "80,170 155,170 155,191 80,212", labelX: 114, labelY: 190 },
+    { id: "F", label: "F", points: "155,170 230,170 155,191", labelX: 178, labelY: 179 },
+    { id: "G", label: "G", points: "80,190 155,172 230,154 230,170 155,191 80,212", labelX: 154, labelY: 181 },
+    { id: "H", label: "H", points: "230,154 290,135 290,188", labelX: 270, labelY: 160 },
+  ],
+  lines: [
+    { id: "axis-y", x1: 56, y1: 28, x2: 56, y2: 248, tone: "guide" },
+    { id: "axis-x", x1: 56, y1: 248, x2: 376, y2: 248, tone: "guide" },
+    { id: "demand", points: "80,70 155,112 230,154 290,188", label: "Vraag", labelX: 304, labelY: 193, tone: "demand" },
+    { id: "pmc", points: "80,212 155,191 230,170", label: "PMC", labelX: 240, labelY: 174, tone: "private" },
+    { id: "smc", points: "80,190 155,172 230,154 290,135", label: "SMC", labelX: 300, labelY: 140, tone: "social" },
+    { id: "pc", x1: 56, y1: 154, x2: 230, y2: 154, label: "P consument", labelX: 64, labelY: 146, dashed: true, tone: "guide" },
+    { id: "pp", x1: 56, y1: 170, x2: 230, y2: 170, label: "P producent", labelX: 64, labelY: 184, dashed: true, tone: "guide" },
+    { id: "qs", x1: 230, y1: 248, x2: 230, y2: 142, label: "Q sociaal", labelX: 230, labelY: 264, dashed: true, tone: "guide" },
+    { id: "qm", x1: 290, y1: 248, x2: 290, y2: 132, label: "Q markt", labelX: 290, labelY: 264, dashed: true, tone: "guide" },
+  ],
+  texts: [
+    { id: "title", x: 210, y: 22, text: "Benzinemarkt met negatieve externaliteit", tone: "default", anchor: "middle" },
+    { id: "y-label", x: 20, y: 42, text: "Prijs", tone: "muted" },
+    { id: "x-label", x: 332, y: 284, text: "Hoeveelheid", tone: "muted" },
+  ],
+  prompts: [
+    {
+      id: "consumer-surplus",
+      questionText: "Selecteer het consumentensurplus bij de sociaal optimale hoeveelheid",
+      correctRegions: ["A", "B"],
+      definitionNL: "Consumer Surplus: the difference between what consumers are willing to pay and what they actually pay.",
+      explanationNL: "De Consumer Surplus is hier het gebied onder de vraagcurve en boven de consumentenprijs, tot aan de sociaal optimale hoeveelheid.",
+    },
+    {
+      id: "producer-surplus",
+      questionText: "Selecteer het producentensurplus na correctie van de externaliteit",
+      correctRegions: ["E", "F"],
+      definitionNL: "Producer Surplus: the difference between the price producers receive and their minimum willingness to supply.",
+      explanationNL: "De Producer Surplus is hier het gebied boven de PMC-curve en onder de producentenprijs, tot aan de sociaal optimale hoeveelheid.",
+    },
+    {
+      id: "external-damage",
+      questionText: "Selecteer de externe schade bij de sociaal optimale hoeveelheid",
+      correctRegions: ["G"],
+      definitionNL: "External Damage: the harm imposed on third parties that is not reflected in the private market price.",
+      explanationNL: "De External Damage is hier het gebied tussen PMC en SMC voor de verhandelde eenheden op het sociaal optimale niveau.",
+    },
+    {
+      id: "total-welfare-gain",
+      questionText: "Selecteer de welvaartswinst van het corrigeren van de externaliteit",
+      correctRegions: ["H"],
+      definitionNL: "Total Welfare Gain: the increase in total welfare from eliminating inefficient transactions.",
+      explanationNL: "Deze Total Welfare Gain is de driehoek tussen vraag en SMC tussen Q sociaal en Q markt: de inefficiënte overproductie verdwijnt.",
+    },
+  ],
+};
+
+export const importTariffExercise: InteractiveGraphExerciseData = {
+  id: "importtarief-welvaart",
+  title: "Grafiek-gebied trainer: importtarief",
+  contextNL:
+    "Deze oefening gebruikt een standaarddiagram van een klein land met een importtarief. Kies steeds de juiste combinatie van gebieden in de grafiek.",
+  regions: [
+    { id: "A", label: "A", points: "100,186 100,86 160,116 220,146 220,186", labelX: 150, labelY: 142 },
+    { id: "B", label: "B", points: "220,186 220,146 280,176 300,186", labelX: 258, labelY: 170 },
+    { id: "C", label: "C", points: "100,186 100,236 160,216 220,196 220,186", labelX: 154, labelY: 206 },
+    { id: "D", label: "D", points: "220,186 220,196 250,186", labelX: 232, labelY: 190 },
+    { id: "E", label: "E", points: "250,186 275,186 275,206 250,206", labelX: 262, labelY: 199 },
+    { id: "F", label: "F", points: "275,186 300,186 300,206 275,206", labelX: 288, labelY: 199 },
+    { id: "G", label: "G", points: "190,206 250,186 250,206", labelX: 228, labelY: 199 },
+    { id: "H", label: "H", points: "300,186 340,206 300,206", labelX: 314, labelY: 199 },
+  ],
+  lines: [
+    { id: "axis-y", x1: 66, y1: 30, x2: 66, y2: 248, tone: "guide" },
+    { id: "axis-x", x1: 66, y1: 248, x2: 388, y2: 248, tone: "guide" },
+    { id: "demand", points: "100,86 160,116 220,146 280,176 340,206 380,226", label: "Vraag", labelX: 344, labelY: 210, tone: "demand" },
+    { id: "supply", points: "100,236 160,216 220,196 280,176 340,156 380,142", label: "Aanbod", labelX: 344, labelY: 154, tone: "private" },
+    { id: "pw", x1: 66, y1: 206, x2: 340, y2: 206, label: "Wereldprijs", labelX: 72, labelY: 200, dashed: true, tone: "guide" },
+    { id: "pt", x1: 66, y1: 186, x2: 300, y2: 186, label: "Binnenlandse prijs met tarief", labelX: 72, labelY: 180, dashed: true, tone: "guide" },
+    { id: "qs-w", x1: 190, y1: 248, x2: 190, y2: 202, label: "Q_s zonder tarief", labelX: 190, labelY: 266, dashed: true, tone: "guide" },
+    { id: "qs-t", x1: 250, y1: 248, x2: 250, y2: 182, label: "Q_s met tarief", labelX: 250, labelY: 266, dashed: true, tone: "guide" },
+    { id: "qd-t", x1: 300, y1: 248, x2: 300, y2: 182, label: "Q_d met tarief", labelX: 300, labelY: 266, dashed: true, tone: "guide" },
+    { id: "qd-w", x1: 340, y1: 248, x2: 340, y2: 202, label: "Q_d zonder tarief", labelX: 340, labelY: 266, dashed: true, tone: "guide" },
+  ],
+  texts: [
+    { id: "title", x: 224, y: 22, text: "Importtarief in een klein land", tone: "default", anchor: "middle" },
+    { id: "y-label", x: 24, y: 42, text: "Prijs", tone: "muted" },
+    { id: "x-label", x: 334, y: 286, text: "Hoeveelheid", tone: "muted" },
+  ],
+  prompts: [
+    {
+      id: "tariff-consumer-surplus",
+      questionText: "Selecteer het consumentensurplus na het importtarief",
+      correctRegions: ["A", "B"],
+      definitionNL: "Consumer Surplus: the difference between what consumers are willing to pay and what they actually pay.",
+      explanationNL: "De Consumer Surplus ligt hier onder de vraagcurve en boven de binnenlandse prijs met tarief, tot aan Q_d met tarief.",
+    },
+    {
+      id: "tariff-producer-surplus",
+      questionText: "Selecteer het producentensurplus na het importtarief",
+      correctRegions: ["C", "D"],
+      definitionNL: "Producer Surplus: the difference between the price producers receive and their minimum willingness to supply.",
+      explanationNL: "De Producer Surplus ligt hier boven de aanbodcurve en onder de binnenlandse prijs met tarief, tot aan Q_s met tarief.",
+    },
+    {
+      id: "tariff-government-revenue",
+      questionText: "Selecteer de overheidsopbrengst van het importtarief",
+      correctRegions: ["E", "F"],
+      definitionNL: "Tariff Revenue: government revenue collected from a tariff on each imported unit.",
+      explanationNL: "De Tariff Revenue is uitsluitend de rechthoek tussen de wereldprijs en de binnenlandse prijs met tarief, over de resterende import.",
+    },
+    {
+      id: "tariff-deadweight-loss",
+      questionText: "Selecteer het welvaartsverlies door het importtarief",
+      correctRegions: ["G", "H"],
+      definitionNL: "Deadweight Loss: the loss of total welfare from transactions that no longer occur.",
+      explanationNL: "De Deadweight Loss bestaat hier uit twee driehoeken: een productieverstoring links en een consumptieverstoring rechts.",
+    },
+  ],
+};
+
+export const monopolyDeadweightLossExercise: InteractiveGraphExerciseData = {
+  id: "monopolie-deadweight-loss",
+  title: "Grafiek-gebied trainer: monopolie en deadweight loss",
+  contextNL:
+    "Deze oefening gebruikt een monopolie-diagram met vraag, marginal revenue en marginal cost. Kies steeds de juiste combinatie van gebieden in de grafiek.",
+  regions: [
+    { id: "A", label: "A", points: "100,129 100,84 160,114 160,129", labelX: 130, labelY: 114 },
+    { id: "B", label: "B", points: "160,129 160,114 190,129", labelX: 172, labelY: 122 },
+    { id: "C", label: "C", points: "100,129 145,129 145,174 100,174", labelX: 122, labelY: 153 },
+    { id: "D", label: "D", points: "145,129 190,129 190,174 145,174", labelX: 167, labelY: 153 },
+    { id: "E", label: "E", points: "100,174 145,174 145,214 100,214", labelX: 122, labelY: 196 },
+    { id: "F", label: "F", points: "145,174 190,174 190,214 145,214", labelX: 167, labelY: 196 },
+    { id: "G", label: "G", points: "190,129 280,174 190,174", labelX: 220, labelY: 159 },
+    { id: "H", label: "H", points: "190,174 240,224 240,174", labelX: 223, labelY: 191 },
+  ],
+  lines: [
+    { id: "axis-y", x1: 66, y1: 30, x2: 66, y2: 248, tone: "guide" },
+    { id: "axis-x", x1: 66, y1: 248, x2: 388, y2: 248, tone: "guide" },
+    { id: "demand", points: "100,84 160,114 220,144 280,174 340,204 380,224", label: "Vraag", labelX: 344, labelY: 208, tone: "demand" },
+    { id: "mr", points: "100,84 160,144 190,174 240,224", label: "MR", labelX: 246, labelY: 228, tone: "social" },
+    { id: "mc", x1: 66, y1: 174, x2: 280, y2: 174, label: "MC", labelX: 286, labelY: 178, tone: "private" },
+    { id: "pm", x1: 66, y1: 129, x2: 190, y2: 129, label: "P_m", labelX: 72, labelY: 121, dashed: true, tone: "guide" },
+    { id: "qm", x1: 190, y1: 248, x2: 190, y2: 125, label: "Q_m", labelX: 190, labelY: 266, dashed: true, tone: "guide" },
+    { id: "qc", x1: 280, y1: 248, x2: 280, y2: 170, label: "Q_c", labelX: 280, labelY: 266, dashed: true, tone: "guide" },
+  ],
+  texts: [
+    { id: "title", x: 224, y: 22, text: "Monopolie, transfer en deadweight loss", tone: "default", anchor: "middle" },
+    { id: "y-label", x: 22, y: 42, text: "Prijs / kosten", tone: "muted" },
+    { id: "x-label", x: 334, y: 286, text: "Hoeveelheid", tone: "muted" },
+  ],
+  prompts: [
+    {
+      id: "monopoly-consumer-surplus",
+      questionText: "Selecteer het consumentensurplus onder monopolie",
+      correctRegions: ["A", "B"],
+      definitionNL: "Consumer Surplus: the difference between what consumers are willing to pay and what they actually pay.",
+      explanationNL: "De Consumer Surplus ligt hier onder de vraagcurve en boven de monopolistische prijs, tot aan Q_m.",
+    },
+    {
+      id: "monopoly-producer-surplus",
+      questionText: "Selecteer het producentensurplus onder monopolie",
+      correctRegions: ["C", "D"],
+      definitionNL: "Producer Surplus: the difference between the price producers receive and their minimum willingness to supply.",
+      explanationNL: "De Producer Surplus ligt hier onder P_m en boven MC, tot aan Q_m. In deze opzet valt dat samen met de winst- of transferrechthoek.",
+    },
+    {
+      id: "monopoly-transfer",
+      questionText: "Selecteer de herverdeling van consumenten naar producenten",
+      correctRegions: ["C", "D"],
+      definitionNL: "Transfer: a redistribution of surplus from one group to another without directly reducing total welfare.",
+      explanationNL: "De Transfer is hier de rechthoek tussen P_m en MC tot aan Q_m: dit surplus verschuift van consumenten naar de monopolist.",
+    },
+    {
+      id: "monopoly-dwl",
+      questionText: "Selecteer het deadweight loss van het monopolie",
+      correctRegions: ["G"],
+      definitionNL: "Deadweight Loss: the loss of total welfare from transactions that no longer occur.",
+      explanationNL: "De Deadweight Loss is hier de driehoek tussen de vraagcurve en MC tussen Q_m en Q_c.",
+    },
+  ],
+};
+
+export const taxIncidenceExercise: InteractiveGraphExerciseData = {
+  id: "belastingincidentie-welvaart",
+  title: "Grafiek-gebied trainer: belasting in perfecte concurrentie",
+  contextNL:
+    "Deze oefening gebruikt een competitieve markt met een specifieke belasting. Kies steeds de juiste combinatie van gebieden in de grafiek.",
+  regions: [
+    { id: "A", label: "A", points: "100,145 100,100 160,130 160,145", labelX: 128, labelY: 128 },
+    { id: "B", label: "B", points: "160,145 160,130 190,145", labelX: 172, labelY: 138 },
+    { id: "C", label: "C", points: "100,145 145,145 145,175 100,175", labelX: 122, labelY: 161 },
+    { id: "D", label: "D", points: "145,145 190,145 190,175 145,175", labelX: 168, labelY: 161 },
+    { id: "E", label: "E", points: "100,175 100,220 160,190 160,175", labelX: 128, labelY: 191 },
+    { id: "F", label: "F", points: "160,175 160,190 190,175", labelX: 173, labelY: 181 },
+    { id: "G", label: "G", points: "190,145 220,160 190,175", labelX: 200, labelY: 160 },
+    { id: "H", label: "H", points: "190,145 220,130 220,160", labelX: 210, labelY: 145 },
+  ],
+  lines: [
+    { id: "axis-y", x1: 66, y1: 30, x2: 66, y2: 248, tone: "guide" },
+    { id: "axis-x", x1: 66, y1: 248, x2: 388, y2: 248, tone: "guide" },
+    { id: "demand", points: "100,100 160,130 220,160 280,190 340,220", label: "Vraag", labelX: 344, labelY: 224, tone: "demand" },
+    { id: "supply", points: "100,220 160,190 220,160 280,130 340,100", label: "Aanbod", labelX: 344, labelY: 104, tone: "private" },
+    { id: "supply-tax", points: "100,190 160,160 220,130 280,100 340,70", label: "Aanbod + belasting", labelX: 304, labelY: 74, tone: "social" },
+    { id: "pc", x1: 66, y1: 145, x2: 190, y2: 145, label: "P_c", labelX: 72, labelY: 137, dashed: true, tone: "guide" },
+    { id: "pp", x1: 66, y1: 175, x2: 190, y2: 175, label: "P_p", labelX: 72, labelY: 187, dashed: true, tone: "guide" },
+    { id: "qt", x1: 190, y1: 248, x2: 190, y2: 141, label: "Q met belasting", labelX: 190, labelY: 266, dashed: true, tone: "guide" },
+    { id: "q0", x1: 220, y1: 248, x2: 220, y2: 126, label: "Q zonder belasting", labelX: 220, labelY: 266, dashed: true, tone: "guide" },
+  ],
+  texts: [
+    { id: "title", x: 224, y: 22, text: "Belastingincidentie en welvaartsverlies", tone: "default", anchor: "middle" },
+    { id: "y-label", x: 24, y: 42, text: "Prijs", tone: "muted" },
+    { id: "x-label", x: 334, y: 286, text: "Hoeveelheid", tone: "muted" },
+  ],
+  prompts: [
+    {
+      id: "tax-consumer-surplus",
+      questionText: "Selecteer het consumentensurplus na belasting",
+      correctRegions: ["A", "B"],
+      definitionNL: "Consumer Surplus: the difference between what consumers are willing to pay and what they actually pay.",
+      explanationNL: "De Consumer Surplus ligt hier onder de vraagcurve en boven de consumentenprijs, tot aan de verhandelde hoeveelheid na belasting.",
+    },
+    {
+      id: "tax-producer-surplus",
+      questionText: "Selecteer het producentensurplus na belasting",
+      correctRegions: ["E", "F"],
+      definitionNL: "Producer Surplus: the difference between the price producers receive and their minimum willingness to supply.",
+      explanationNL: "De Producer Surplus ligt hier boven de aanbodcurve en onder de producentenprijs, tot aan de verhandelde hoeveelheid na belasting.",
+    },
+    {
+      id: "tax-revenue",
+      questionText: "Selecteer de belastingopbrengst",
+      correctRegions: ["C", "D"],
+      definitionNL: "Tax Revenue: government revenue collected from a tax on each unit sold.",
+      explanationNL: "De Tax Revenue is uitsluitend de belastingrechthoek tussen P_c en P_p over de hoeveelheid na belasting.",
+    },
+    {
+      id: "tax-dwl",
+      questionText: "Selecteer het deadweight loss van de belasting",
+      correctRegions: ["G"],
+      definitionNL: "Deadweight Loss: the loss of total welfare from transactions that no longer occur.",
+      explanationNL: "De Deadweight Loss is hier de driehoek tussen vraag en aanbod over de eenheden die door de belasting niet meer worden verhandeld.",
+    },
+  ],
+};

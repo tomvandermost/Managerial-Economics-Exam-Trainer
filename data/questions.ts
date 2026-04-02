@@ -1,4 +1,10 @@
 import { PracticeQuestion, Topic } from "@/types";
+import {
+  benzineWelfareExercise,
+  importTariffExercise,
+  monopolyDeadweightLossExercise,
+  taxIncidenceExercise,
+} from "@/data/graph-exercises";
 
 const createQuestion = (
   id: string,
@@ -34,6 +40,7 @@ const createQuestion = (
   formulas,
   tags: meta?.tags ?? [],
   hasDiagram: meta?.hasDiagram ?? false,
+  interactiveGraphExercise: meta?.interactiveGraphExercise,
 });
 
 const pc = [
@@ -407,6 +414,70 @@ const externalities = [
     ["Differentieer de schadefunctie.", "Vul pas daarna de gegeven hoeveelheid in.", "Leg uit waarom marginale schade beleidsrelevant is."],
     ["Neem de afgeleide van 2Q^2.", "Bereken de uitkomst bij Q = 6.", "Koppel dit aan Pigouviaanse belasting of SMC."],
     ["Totale schade invullen zonder te differentiëren.", "Marginale en gemiddelde schade verwarren."],
+  ),
+  createQuestion(
+    "ex-9",
+    "welvaartsdiagrammen",
+    "Grafiek-gebied trainer: benzine en externe kosten",
+    "Externe schade",
+    "medium",
+    "graph",
+    "Gebruik de interactieve grafiek om gebieden te herkennen die horen bij consumentensurplus, producentensurplus, externe schade en de welvaartswinst van beleid.",
+    "In deze oefening herken je per vraag de juiste combinatie van gebieden in een externaliteitendiagram. Let op het verschil tussen vraag, private kosten, sociale kosten en de belastingwig.",
+    "Deze oefening traint het visueel herkennen van welvaartsgebieden. Je oefent het onderscheid tussen Consumer Surplus, Producer Surplus, External Damage en de welvaartswinst van het corrigeren van een negatieve externaliteit.",
+    ["Consumer Surplus", "Producer Surplus", "External Damage", "Total Welfare"],
+    ["Lees eerst welke curve vraag, PMC en SMC voorstelt.", "Kijk of het gevraagde gebied boven, onder of tussen bepaalde lijnen ligt.", "Controleer altijd tot welke hoeveelheid het gebied loopt."],
+    ["Bepaal welke twee lijnen de boven- en ondergrens vormen.", "Bepaal of het gebied loopt tot Q sociaal of Q markt.", "Selecteer alle vlakken die samen het gevraagde begrip vormen.", "Controleer je antwoord en vergelijk met de uitleg."],
+    ["Te veel focussen op letters in plaats van op de economische grenzen.", "Belastingopbrengst verwarren met producentensurplus.", "External Damage en welvaartswinst door elkaar halen."],
+    { hasDiagram: true, points: 10, interactiveGraphExercise: benzineWelfareExercise }
+  ),
+  createQuestion(
+    "ex-10",
+    "welvaartsdiagrammen",
+    "Grafiek-gebied trainer: importtarief en welvaartsverlies",
+    "Welvaartsverlies",
+    "medium",
+    "graph",
+    "Gebruik de interactieve grafiek om in een importtariefdiagram consumentensurplus, producentensurplus, overheidsopbrengst en welvaartsverlies te herkennen.",
+    "In deze oefening herken je per vraag de juiste gebieden in een standaarddiagram met wereldprijs en importtarief.",
+    "Deze oefening helpt je het verschil te zien tussen transfers en echt welvaartsverlies in een tariefdiagram.",
+    ["Consumer Surplus", "Producer Surplus", "Tariff Revenue", "Deadweight Loss"],
+    ["Let op het verschil tussen de wereldprijs en de binnenlandse prijs met tarief.", "Kijk goed welke hoeveelheid binnenlands wordt aangeboden en welke hoeveelheid wordt geconsumeerd.", "Een transfer is iets anders dan een netto welvaartsverlies."],
+    ["Bepaal eerst de prijs- en hoeveelheidslijnen.", "Zoek daarna welk gebied onder of boven vraag en aanbod ligt.", "Controleer of je een transfer of een driehoek van verlies zoekt.", "Selecteer alle vlakken die samen het gevraagde begrip vormen."],
+    ["Overheidsopbrengst verwarren met producentensurplus.", "De twee deadweight-loss-driehoeken niet allebei meenemen.", "Vergeten dat consumentensurplus loopt tot de gevraagde hoeveelheid met tarief."],
+    { hasDiagram: true, points: 10, interactiveGraphExercise: importTariffExercise }
+  ),
+  createQuestion(
+    "ex-11",
+    "welvaartsdiagrammen",
+    "Grafiek-gebied trainer: monopolie en deadweight loss",
+    "Deadweight loss",
+    "medium",
+    "graph",
+    "Gebruik de interactieve grafiek om in een monopolie-diagram consumentensurplus, producentensurplus, transfer en deadweight loss te herkennen.",
+    "In deze oefening herken je per vraag de juiste gebieden in een diagram met vraag, MR en MC.",
+    "Deze oefening laat je oefenen met het onderscheid tussen herverdeling naar de monopolist en het echte welvaartsverlies door lagere output.",
+    ["Consumer Surplus", "Producer Surplus", "Transfer", "Deadweight Loss"],
+    ["Zoek eerst de monopolistische prijs en hoeveelheid.", "Herverdeling is niet hetzelfde als deadweight loss.", "Het deadweight loss ligt tussen Q_m en de competitieve hoeveelheid."],
+    ["Bepaal waar MR = MC ligt en lees daar Q_m af.", "Zoek daarna de bijbehorende prijs op de vraagcurve.", "Onderscheid de transferrechthoek van de verliesdriehoek.", "Selecteer alle vlakken die het gevraagde begrip vormen."],
+    ["De transfer aanzien voor netto verlies.", "Consumentensurplus laten doorlopen voorbij Q_m.", "MR en vraag door elkaar halen."],
+    { hasDiagram: true, points: 10, interactiveGraphExercise: monopolyDeadweightLossExercise }
+  ),
+  createQuestion(
+    "ex-12",
+    "welvaartsdiagrammen",
+    "Grafiek-gebied trainer: belastingincidentie en belastingopbrengst",
+    "Belastingincidentie",
+    "medium",
+    "graph",
+    "Gebruik de interactieve grafiek om in een belastingdiagram consumentensurplus, producentensurplus, belastingopbrengst en deadweight loss te herkennen.",
+    "In deze oefening herken je per vraag de juiste gebieden in een competitieve markt met een specifieke belasting.",
+    "Deze oefening traint het lezen van de belastingwig, de verdeling van de belastingdruk en het bijbehorende welvaartsverlies.",
+    ["Consumer Surplus", "Producer Surplus", "Tax Revenue", "Deadweight Loss"],
+    ["Let op het verschil tussen P_c en P_p.", "Belastingopbrengst is de wig maal de nieuwe hoeveelheid.", "Het deadweight loss ligt rechts van de hoeveelheid met belasting."],
+    ["Zoek de consumentenprijs en producentenprijs.", "Bepaal de hoeveelheid met en zonder belasting.", "Onderscheid daarna surplus, belastingopbrengst en deadweight loss.", "Selecteer alle juiste vlakken."],
+    ["Belastingopbrengst verwarren met producentensurplus.", "Het deadweight loss links in plaats van rechts van Q met belasting plaatsen.", "De prijswig niet meenemen in de analyse."],
+    { hasDiagram: true, points: 10, interactiveGraphExercise: taxIncidenceExercise }
   ),
 ];
 

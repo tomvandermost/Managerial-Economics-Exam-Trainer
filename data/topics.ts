@@ -38,6 +38,18 @@ export const topics: TopicMeta[] = [
     ],
   },
   {
+    slug: "welvaartsdiagrammen",
+    name: "Welvaartsdiagrammen",
+    description: "Interactieve grafiekoefeningen rond surplus, externaliteiten en gebiedsanalyse in economische diagrammen.",
+    subtopics: [
+      "Consumentensurplus",
+      "Producentensurplus",
+      "Externe schade",
+      "Totale welvaart",
+      "Grafiek-gebied trainer",
+    ],
+  },
+  {
     slug: "speltheorie",
     name: "Speltheorie",
     description: "Dominante strategieen, Nash-evenwicht, sequential games en beleid.",

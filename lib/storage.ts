@@ -22,6 +22,13 @@ export function saveStats(stats: PracticeStats) {
   window.localStorage.setItem(STATS_KEY, JSON.stringify(stats));
 }
 
+export function clearProgress() {
+  if (typeof window === "undefined") return createEmptyStats();
+  window.localStorage.removeItem(STATS_KEY);
+  window.localStorage.removeItem(MINI_TEST_KEY);
+  return createEmptyStats();
+}
+
 export function updateStatsWithResult(
   current: PracticeStats,
   question: PracticeQuestion,

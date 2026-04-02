@@ -4,13 +4,15 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import { calculateAccuracy, getRecommendations, topicNameMap } from "@/lib/practice";
-import { loadStats } from "@/lib/storage";
+import { clearProgress, loadStats } from "@/lib/storage";
 import { questions } from "@/data/questions";
 import { PracticeStats, Topic } from "@/types";
 
 export function DashboardClient() {
   const [stats, setStats] = useState<PracticeStats | null>(null);
+  const [resetFeedback, setResetFeedback] = useState("");
 
   useEffect(() => {
     setStats(loadStats());
@@ -32,11 +34,31 @@ export function DashboardClient() {
 
   if (!stats) return null;
 
+  const resetHistory = () => {
+    const confirmed = window.confirm("Weet je zeker dat je alle opgeslagen voortgang en geschiedenis wilt wissen?");
+    if (!confirmed) return;
+    setStats(clearProgress());
+    setResetFeedback("De lokale voortgang is gereset.");
+  };
+
   const recommendations = getRecommendations(stats);
   const topicEntries = Object.entries(stats.byTopic) as [Topic, PracticeStats["byTopic"][Topic]][];
 
   return (
     <div className="space-y-6">
+      <Card>
+        <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <h2 className="font-serif text-2xl">Voortgang beheren</h2>
+            <p className="text-sm text-slate">Wis je lokale history en begin opnieuw met een schone voortgang.</p>
+            {resetFeedback ? <p className="text-sm font-medium text-pine">{resetFeedback}</p> : null}
+          </div>
+          <Button variant="outline" onClick={resetHistory}>
+            Clear history
+          </Button>
+        </CardContent>
+      </Card>
+
       <div className="grid gap-4 md:grid-cols-4">
         <Card>
           <CardContent>

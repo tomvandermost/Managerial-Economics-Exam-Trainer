@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnswerModel } from "@/components/answer-model";
 import { EconomicsDiagram } from "@/components/diagrams/economics-diagram";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -82,7 +83,7 @@ export function QuestionDetail({ question }: { question: PracticeQuestion }) {
               </ol>
             </SimpleAccordion>
             <SimpleAccordion title="Toon antwoordmodel">
-              <p>{question.finalAnswer}</p>
+              <AnswerModel question={question} />
             </SimpleAccordion>
             <SimpleAccordion title="Toon economische uitleg">
               <div className="space-y-4">

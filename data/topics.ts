@@ -4,9 +4,10 @@ export const topics: TopicMeta[] = [
   {
     slug: "perfecte-concurrentie",
     name: "Perfecte concurrentie",
-    description: "Marktevenwicht, belastingincidentie, elasticiteit en shutdown-beslissingen.",
+    description: "Marktevenwicht, prijsbeleid, belastingincidentie, elasticiteit en shutdown-beslissingen.",
     subtopics: [
       "Marktevenwicht",
+      "Prijsplafond en prijsvloer",
       "Belastingincidentie",
       "Deadweight loss",
       "Elasticiteit en omzet",
@@ -76,12 +77,13 @@ export const topics: TopicMeta[] = [
   {
     slug: "importtarieven",
     name: "Importtarieven",
-    description: "Tarieven, quota, vrijhandel en protectionistische argumenten.",
+    description: "Tarieven, quota, importverboden, vrijhandel en protectionistische argumenten.",
     subtopics: [
       "Consumentensurplus",
       "Producentensurplus",
       "Overheidsopbrengst",
       "Welvaartsverlies",
+      "Quota en importverboden",
       "Beleidsargumenten",
     ],
   },
